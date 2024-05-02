@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# VARIABLES
+
+pathtoscript="ffetchscript" # by default it is at /etc
+futurefetchver="0.1.0" # by default it is at /etc
+cpu=$(lscpu | awk -F': *' '/Model name/{print $2}')
+gpu=$(lshw -C display | grep product | head -n 1 | awk '{print $2, $3}')
+mem=$(awk '/MemTotal/{print $2/1024}' /proc/meminfo)
+
+# PRINT STUFF
+
+print_logo(){
+  linen=15
+  endlinen=24
+  until [ $linen -gt "$endlinen" ]
+  do
+    linecont=$(head -n +"$linen" "$pathtoscript" | tail -n 1)
+    echo -e "$linecont"
+    linen=$((linen + 1))
+  done
+}
+
+#print_custom_thing(){
+#}
+
+print_universal_info(){
+  linen=5
+  endlinen=9
+  until [ $linen -gt "$endlinen" ]
+  do
+    linecont=$(head -n +"$linen" "$pathtoscript" | tail -n 1)
+    echo -e "$linecont"
+    linen=$((linen + 1))
+  done
+  echo -e "\033[0;34mOS Kernel\033[1;37m $(uname -s -r)"
+  echo -e "\033[0;34mOS Name 2\033[1;37m $(uname -o)"
+  echo -e "\033[0;34mArchitecture\033[1;37m $(uname -m)"
+  echo -e "\033[0;34mDE\033[1;37m $XDG_CURRENT_DESKTOP $DESKTOP_SESSION"
+  echo -e "\033[0;34mCPU\033[1;37m $cpu"
+  echo -e "\033[0;34mGPU\033[1;37m $gpu"
+  echo -e "\033[0;34mMemory\033[1;37m $mem MB"
+  echo -e "\033[0;34mFuture Fetch Version\033[1;37m $futurefetchver"
+}
+
+echo ""
+print_logo
+echo ""
+print_universal_info
+exit 0
