@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # VARIABLES
-
-pathtoscript="ffetchscript" # by default it is at /etc
+pathtoscript="/etc/ffetchscript" # by default it is at /etc
 futurefetchver="0.1.0" # by default it is at /etc
 cpu=$(lscpu | awk -F': *' '/Model name/{print $2}')
 gpu=$(lshw -C display | grep product | head -n 1 | awk '{print $2, $3}')
