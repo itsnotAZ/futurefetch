@@ -20,3 +20,4 @@ If you want to create a package for a distro's repo, feel free but I will not pr
 
 - bash
 - lshw
+- curl *(for the installer)*
