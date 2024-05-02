@@ -2,10 +2,10 @@
 
 # VARIABLES
 pathtoscript="/etc/ffetchscript" # by default it is at /etc
-futurefetchver="0.1.0" # by default it is at /etc
-cpu=$(lscpu | awk -F': *' '/Model name/{print $2}')
-gpu=$(lshw -C display | grep product | head -n 1 | awk '{print $2, $3}')
-mem=$(awk '/MemTotal/{print $2/1024}' /proc/meminfo)
+futurefetchver="0.1.0~2024" # version of this tool
+cpu=$(lscpu | awk -F': *' '/Model name/{print $2}') # cpu name
+gpu=$(lshw -C display | grep product | head -n 1 | awk '{print $2, $3}') # gpu name
+mem=$(awk '/MemTotal/{print $2/1024}' /proc/meminfo) # total ram
 
 # PRINT STUFF
 
