@@ -13,3 +13,10 @@ So basically with neofetch, OS developers had to go to the neofetch repo to requ
 To avoid having to create packages for all the formats out there, each release will have a downloadable script (`installffetch.sh`) that will work on GNU/Linux *(and possibly other *nix systems)* that any developer can integrate into their project.
 
 Alternatively, if you are not interested in developing an operating system, but your OS Developer has not implemented futurefetch support, you can do it yourself so I can add it to the `config repository`!
+
+If you want to create a package for a distro's repo, feel free but I will not provide support. JUst fork the repo and do the necessary changes.
+
+## Dependencies:
+
+- bash
+- lshw
