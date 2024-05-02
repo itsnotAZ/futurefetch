@@ -5,6 +5,7 @@
 echo "Downloading futurefetch..."
 curl https://raw.githubusercontent.com/itsnotAZ/futurefetch/main/futurefetch --output futurefetch
 sudo mv futurefetch /usr/bin
+cd /usr/bin
 sudo chmod +x futurefetch
 echo "Downloading config script"
 curl https://raw.githubusercontent.com/itsnotAZ/futurefetch/main/ffscriptbase/ffetchscript --output ffetchscript
