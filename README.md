@@ -1,8 +1,7 @@
 # futurefetch
-
-## Introduction
 Spiritual Successor to **neofetch** *by dylanaraps*  for GNU/Linux *(and possibly other Unix/Unix-like systems)*
 
+## tf?
 futurefetch is a tool to display useful system information in a visually appealing way. *(yeah that is pretty much it :D)*
 
 ## The Idea
