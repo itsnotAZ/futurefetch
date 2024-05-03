@@ -23,7 +23,7 @@ After installation, run `futurefetch` and enjoy!
 - bash
 - lshw
 - util-linux
-- curl *(for the installer)*
+- wget *(for the installer)*
 
 **additionally, futurefetch requires the following stuff inside** `/etc/os-release`**:**
 
