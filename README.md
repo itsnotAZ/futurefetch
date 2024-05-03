@@ -12,12 +12,21 @@ So basically with neofetch, OS developers had to go to the neofetch repo to requ
 ## Installation
 To avoid having to create packages for all the formats out there, each release will have a downloadable script (`installer.sh`) that will work on GNU/Linux *(and possibly other *nix systems)* that any developer can integrate into their project.
 
-Alternatively, if you are not interested in developing an operating system, but your OS Developer has not implemented futurefetch support, you can do it yourself so I can add it to the `config repository`!
+Alternatively, if you are not interested in developing an operating system, but your OS Developer has not implemented futurefetch support, you can make your own `ffconfig` and submit it as an issue or as a pull request here on this repo so I can add it to the `config repository`!
 
 If you want to create a package for a distro's repo, feel free but I will not provide support. Just fork the repo and do the necessary changes.
+
+After installation, run `futurefetch` and enjoy!
 
 ## Dependencies:
 
 - bash
 - lshw
+- util-linux
 - curl *(for the installer)*
+
+**additionally, futurefetch requires the following stuff inside** `/etc/os-release`**:**
+
+- `NAME=`
+- `VERSION=`
+- `HOME_URL=`

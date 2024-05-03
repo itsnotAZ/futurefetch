@@ -3,49 +3,62 @@
 # this tool is licensed under the gpl 3.0 >:( (fear me lmao)
 
 # VARIABLES
-pathtoscript="/etc/ffetchscript" # by default it is at /etc
-futurefetchver="0.1.0" # version of this tool
-cpu=$(lscpu | awk -F': *' '/Model name/{print $2}') # cpu name
-gpu=$(lshw -C display | grep product | head -n 1 | awk '{print $2, $3}') # gpu name
-mem=$(awk '/MemTotal/{print $2/1024}' /proc/meminfo) # total ram
+
+pathtoconfig="/etc/ffetchconfig" # by default it is at /etc/ffetchconfig
+futurefetchver="0.2.0" # version of this tool
+accentcolor=$(head -n 20 "$pathtoconfig" | tail -1)
+secondcolor=$(head -n 24 "$pathtoconfig" | tail -1)
+showcredits=$(head -n 41 "$pathtoconfig" | tail -1)
 
 # PRINT STUFF
 
 print_logo(){
-  linen=15
-  endlinen=24
+  linen=28
+  endlinen=37
   until [ $linen -gt "$endlinen" ]
   do
-    linecont=$(head -n +"$linen" "$pathtoscript" | tail -n 1)
+    linecont=$(head -n +"$linen" "$pathtoconfig" | tail -n 1)
     echo -e "$linecont"
     linen=$((linen + 1))
   done
 }
-
-#print_custom_thing(){
-#}
 
 print_universal_info(){
-  linen=5
-  endlinen=9
-  until [ $linen -gt "$endlinen" ]
-  do
-    linecont=$(head -n +"$linen" "$pathtoscript" | tail -n 1)
-    echo -e "$linecont"
-    linen=$((linen + 1))
-  done
-  echo -e "\033[0;34mOS Kernel\033[1;37m $(uname -s -r)"
-  echo -e "\033[0;34mOS Name 2\033[1;37m $(uname -o)"
-  echo -e "\033[0;34mArchitecture\033[1;37m $(uname -m)"
-  echo -e "\033[0;34mDE\033[1;37m $XDG_CURRENT_DESKTOP $DESKTOP_SESSION"
-  echo -e "\033[0;34mCPU\033[1;37m $cpu"
-  echo -e "\033[0;34mGPU\033[1;37m $gpu"
-  echo -e "\033[0;34mMemory\033[1;37m $mem MB"
-  echo -e "\033[0;34mFuture Fetch Version\033[1;37m $futurefetchver"
+  echo -e "$accentcolor OS Name$secondcolor $(cat /etc/os-release | grep -oP '(?<=^NAME=).+' | tr -d '"')"
+  echo -e "$accentcolor OS Name 2$secondcolor $(uname -o)"
+  echo -e "$accentcolor OS Version$secondcolor $(cat /etc/os-release | grep -oP '(?<=^VERSION=).+' | tr -d '"')"
+  echo -e "$accentcolor OS Homepage$secondcolor $(cat /etc/os-release | grep -oP '(?<=^HOME_URL=).+' | tr -d '"')"
+  echo -e "$accentcolor OS Kernel$secondcolor $(uname -s -r)"
+  echo -e "$accentcolor Architecture$secondcolor $(uname -m)"
+  echo -e "$accentcolor DE + Session$secondcolor $XDG_CURRENT_DESKTOP + $DESKTOP_SESSION"
+  echo -e "$accentcolor CPU$secondcolor $(lscpu | awk -F': *' '/Model name/{print $2}')"
+  echo -e "$accentcolor GPU$secondcolor $(lshw 2>/dev/null -C display | grep product | head -n 1 | awk '{print $2, $3}')"
+  echo -e "$accentcolor Memory$secondcolor $(awk '/MemTotal/{print $2/1024}' /proc/meminfo) MB"
+  echo -e "$accentcolor Future Fetch Version$secondcolor $futurefetchver"
 }
+
+print_credits(){
+  echo -e "\033[1;92mfuturefetch \033[0mby \033[46mitsnotaz\033[0m \033[4;37m(https://itsnotaz.github.io/website/)"
+}
+
+#print_special(){
+#}                  #COMING SOON :D
+
+# RUN STUFF
 
 echo ""
 print_logo
 echo ""
 print_universal_info
-exit 0
+if [[ "$showcredits" == "YES" ]]; then
+  echo ""
+  print_credits
+  exit 0
+elif [[ "$showcredits" == "NO" ]]; then
+  exit 0
+else
+  echo -e "\033[0;32mERROR (futurefetch): $showcredits is an invalid option for SHOW CREDITS in $pathtoconfig"
+  exit 1
+fi
+#echo ""
+#print_special

@@ -1,0 +1,41 @@
+<-----------------------------------INFO---------------------------------->
+
+this file should supposed to be located in /etc
+
+do not modify anything you are not supposed to
+modify, or you will break the script (and dont append extra lines)
+
+TO ADD COLOR DO: \033[{ansi color escape code}m{text}
+ex. \033[0;32m# --> this will output a red # (no text effects)
+
+the logo must be 10 characters tall, or the script will break
+
+show credits can be a YES or NO 
+i really apprewciate it if you put YES there :)
+
+<-----------------------------------CONFIG---------------------------------->
+
+ACCENT COLOR/STYLE
+---------
+\033[0;36m
+
+SECONDARY COLOR/STYLE
+---------
+\033[1;37m
+
+LOGO
+---------
+\033[1;37m#############\033[0;36m#############
+\033[1;37m#############\033[0;36m#############
+\033[1;37m#############\033[0;36m#############
+\033[1;37m#############\033[0;36m#############
+\033[1;37m#############\033[0;36m############# 
+\033[1;37m#############\033[0;36m#############
+\033[1;37m#############\033[0;36m#############
+\033[1;37m#############\033[0;36m#############
+\033[1;37m#############\033[0;36m#############
+\033[1;37m#############\033[0;36m############# 
+
+SHOW CREDITS
+---------
+NO

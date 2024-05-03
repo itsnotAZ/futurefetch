@@ -3,12 +3,12 @@
 # THE INSTALLER HAS CURL AS A DEPENDENCY!!
 
 echo "Downloading futurefetch..."
-curl https://raw.githubusercontent.com/itsnotAZ/futurefetch/main/futurefetch --output futurefetch
+curl https://github.com/itsnotAZ/futurefetch/releases/download/v0.2.0/futurefetch --output futurefetch
 sudo chmod +x futurefetch
 sudo mv futurefetch /usr/bin
 echo "Downloading config script"
-curl https://raw.githubusercontent.com/itsnotAZ/futurefetch/main/ffscriptbase/ffetchscript --output ffetchscript
-sudo mv ffetchscript /etc
+curl https://github.com/itsnotAZ/futurefetch/releases/download/v0.2.0/ffetchconfig --output ffetchconfig
+sudo mv ffetchconfig /etc
 echo "Setup complete!"
-echo "To configure the ffetchscript located in /etc use a texteditor ran as super user."
-echo "Enjoy!"
+echo "If setup was successful, configure the ffetchconfig located in /etc using a texteditor ran as super user."
+
