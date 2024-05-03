@@ -5,7 +5,7 @@
 Spiritual Successor to **[neofetch](https://github.com/dylanaraps/neofetch)** *by [dylanaraps](https://github.com/dylanaraps)* for GNU/Linux *(and possibly other Unix/Unix-like systems)*
 
 <p align="center"><img src="https://github.com/itsnotAZ/futurefetch/assets/155894291/05d63241-3287-4e41-9919-de526574275b" /></p>
-<p align="center"><em>picture of stock futurefetch 0.2.0</em></p>
+<p align="center"><em>picture of stock futurefetch 0.2.0 (stock config)</em></p>
 
 ## tf?
 futurefetch is a tool to display useful system information in a visually appealing way. *(yeah that is pretty much it :D)*
