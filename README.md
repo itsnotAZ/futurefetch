@@ -13,7 +13,7 @@ futurefetch is a tool to display useful system information in a visually appeali
 So basically with neofetch, OS developers had to go to the neofetch repo to request support for their operating system or fork neofetch and make their own custom version to host on their repos. Futurefetch basically aims to completely change that, and instead of me having to add support for millions upon millions of Operating Systems on my tool, developers can just customize one file in their OS's `etc` directory and ship the futurefetch tool with their product. 
 
 ## Installation
-To avoid having to create packages for all the formats out there, each release will have a downloadable script (`installer.sh`) that will work on GNU/Linux *(and possibly other *nix systems)* that any developer can integrate into their project.
+To avoid having to create packages for all the formats out there, each release will have a downloadable script (`installer.sh`) that will work on GNU/Linux *(and possibly other *nix systems)* that any developer can integrate into their project. Download the latest one on the [releases](https://github.com/itsnotAZ/futurefetch/releases) tab.
 
 Alternatively, if you are not interested in developing an operating system, but your OS Developer has not implemented futurefetch support, you can make your own `ffconfig` and submit it as an issue or as a pull request here on this repo so I can add it to the `config repository`!
 
