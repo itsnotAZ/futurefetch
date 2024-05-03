@@ -1,3 +1,4 @@
+![amogus](https://github.com/itsnotAZ/futurefetch/assets/155894291/ef7aa044-51c9-4781-aec7-0ee89514e9f8)\
 **THIS TOOL IS STILL IN EARLY ALPHA SO IT IS MISSING FEATURES**
 
 # futurefetch
