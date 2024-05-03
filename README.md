@@ -1,7 +1,10 @@
+**THIS TOOL IS STILL IN EARLY ALPHA SO IT IS MISSING FEATURES**
+
 # futurefetch
 Spiritual Successor to **[neofetch](https://github.com/dylanaraps/neofetch)** *by [dylanaraps](https://github.com/dylanaraps)* for GNU/Linux *(and possibly other Unix/Unix-like systems)*
 
-**THIS TOOL IS STILL IN EARLY ALPHA SO IT IS ACTUALLY RIDDLED WITH BUGS AND MISSING FEATURES LMAO**
+<p align="center"><img src="https://github.com/itsnotAZ/futurefetch/assets/155894291/05d63241-3287-4e41-9919-de526574275b" /></p>
+<p align="center"><em>picture of stock futurefetch 0.2.0</em></p>
 
 ## tf?
 futurefetch is a tool to display useful system information in a visually appealing way. *(yeah that is pretty much it :D)*
