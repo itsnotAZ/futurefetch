@@ -2,12 +2,28 @@
 
 # THE INSTALLER HAS WGET AS A DEPENDENCY!!
 
-echo "Downloading futurefetch..."
-wget https://github.com/itsnotAZ/futurefetch/releases/download/v0.2.0/futurefetch
-sudo chmod +x futurefetch
-sudo mv futurefetch /usr/bin
-echo "Downloading config script"
-wget https://github.com/itsnotAZ/futurefetch/releases/download/v0.2.0/ffetchconfig 
-sudo mv ffetchconfig /etc
-echo "Setup complete!"
-echo "If setup was successful, configure the ffetchconfig located in /etc using a texteditor ran as super user."
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  echo "GNU/Linux detected..."
+  echo "Downloading futurefetch..."
+  wget https://github.com/itsnotAZ/futurefetch/releases/download/v0.2.0/futurefetch
+  sudo chmod +x futurefetch
+  sudo mv futurefetch /usr/bin
+  echo "Downloading config script"
+  wget https://github.com/itsnotAZ/futurefetch/releases/download/v0.2.0/ffetchconfig 
+  sudo mv ffetchconfig /etc
+  echo "Setup complete!"
+  echo "If setup was successful, configure the ffetchconfig located in /etc by running 'futurefetch -e'"
+  exit 0
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  echo "MacOS X detected..."
+  echo "Downloading futurefetch..."
+  wget https://github.com/itsnotAZ/futurefetch/releases/download/v0.2.0/futurefetch
+  sudo chmod 755 futurefetch
+  sudo mv futurefetch /usr/bin
+  echo "Downloading config script"
+  wget https://github.com/itsnotAZ/futurefetch/releases/download/v0.2.0/ffetchconfig 
+  sudo mv ffetchconfig /etc
+  echo "Setup complete!"
+  echo "If setup was successful, configure the ffetchconfig located in /etc by running 'futurefetch -e'"
+  exit 0
+fi

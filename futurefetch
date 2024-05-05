@@ -9,7 +9,7 @@ futurefetchver="0.3.0" # version of this tool
 accentcolor=$(head -n 20 "$pathtoconfig" | tail -1)
 secondcolor=$(head -n 24 "$pathtoconfig" | tail -1)
 showcredits=$(head -n 41 "$pathtoconfig" | tail -1)
-credits="\033[1;92mfuturefetch \033[0mby \033[46mitsnotaz\033[0m \033[4;37m(itsnotaz.github.io/website/)"
+credits="\033[1;92mfuturefetch \033[0mby \033[46mitsnotaz \033[4;37m(itsnotaz.github.io/website/) \033[0m and contributors ()"
 configcredits=$(head -n 45 "$pathtoconfig" | tail -1)
 
 # PRINT STUFF
@@ -26,19 +26,40 @@ print_logo(){
 }
 
 print_universal_info(){
-  echo -e "$accentcolor OS Name$secondcolor $(cat /etc/os-release | grep -oP '(?<=^NAME=).+' | tr -d '"')"
-  echo -e "$accentcolor OS Name 2$secondcolor $(uname -o)"
-  echo -e "$accentcolor OS Version$secondcolor $(cat /etc/os-release | grep -oP '(?<=^VERSION=).+' | tr -d '"')"
-  echo -e "$accentcolor OS Homepage$secondcolor $(cat /etc/os-release | grep -oP '(?<=^HOME_URL=).+' | tr -d '"')"
-  echo -e "$accentcolor OS Kernel$secondcolor $(uname -s -r)"
-  echo -e "$accentcolor Architecture$secondcolor $(uname -m)"
-  echo -e "$accentcolor DE$secondcolor $XDG_CURRENT_DESKTOP"
-  echo -e "$accentcolor Session$secondcolor $DESKTOP_SESSION"
-  echo -e "$accentcolor Uptime$secondcolor $(uptime -p)"
-  echo -e "$accentcolor CPU$secondcolor $(lscpu | awk -F': *' '/Model name/{print $2}')"
-  echo -e "$accentcolor GPU$secondcolor $(lshw 2>/dev/null -C display | grep product | head -n 1 | awk '{print $2, $3}')"
-  echo -e "$accentcolor Memory$secondcolor $(awk '/MemTotal/{print $2/1024}' /proc/meminfo) MB"
-  echo -e "$accentcolor Future Fetch Version$secondcolor $futurefetchver"
+  if [[ "$OSTYPE" == "linux-gnu"* ]] # Linux support (obviously)
+  then
+    echo -e "$accentcolor OS Name$secondcolor $(cat /etc/os-release | grep -oP '(?<=^NAME=).+' | tr -d '"')"
+    echo -e "$accentcolor OS Name 2$secondcolor $(uname -o)"
+    echo -e "$accentcolor OS Version$secondcolor $(cat /etc/os-release | grep -oP '(?<=^VERSION=).+' | tr -d '"')"
+    echo -e "$accentcolor OS Homepage$secondcolor $(cat /etc/os-release | grep -oP '(?<=^HOME_URL=).+' | tr -d '"')"
+    echo -e "$accentcolor OS Kernel$secondcolor $(uname -s -r)"
+    echo -e "$accentcolor Architecture$secondcolor $(uname -m)"
+    echo -e "$accentcolor DE$secondcolor $XDG_CURRENT_DESKTOP"
+    echo -e "$accentcolor Session$secondcolor $DESKTOP_SESSION"
+    echo -e "$accentcolor Uptime$secondcolor $(uptime -p)"
+    echo -e "$accentcolor CPU$secondcolor $(lscpu | awk -F': *' '/Model name/{print $2}')"
+    echo -e "$accentcolor GPU$secondcolor $(lshw 2>/dev/null -C display | grep product | head -n 1 | awk '{print $2, $3}')"
+    echo -e "$accentcolor Memory$secondcolor $(awk '/MemTotal/{print $2/1024}' /proc/meminfo) MB"
+    echo -e "$accentcolor Future Fetch Version$secondcolor $futurefetchver"
+  elif [[ "$OSTYPE" == "darwin"* ]] # MacOS X support (cuz why not) !EXPERIEMENTAL!
+  then 
+    # i dont own a mac so yeah... help?
+    # so yeah this means there is missing
+    # stuff, and the stuff that is currently
+    # here isn't guaranteed to work lmao...
+    echo -e "$accentcolor OS Name$secondcolor MacOS X"
+    echo -e "$accentcolor OS Homepage$secondcolor https://www.apple.com"
+    echo -e "$accentcolor OS Kernel$secondcolor $(uname)"
+    echo -e "$accentcolor Architecture$secondcolor $(uname -p)"
+    echo -e "$accentcolor Uptime$secondcolor $(uptime -p)"
+    echo -e "$accentcolor CPU$secondcolor $(sysctl -n machdep.cpu.brand_string)"
+    total_memory="$(sysctl -n hw.memsize)" / 1024 / 1024 # the command prints in bytes so we convert to mb (does this even work?)
+    echo -e "$accentcolor Memory$secondcolor $total_memory_mb MB"
+    echo -e "$accentcolor Future Fetch Version$secondcolor $futurefetchver"
+  else
+    echo -e "\033[0;32mERROR (futurefetch): Unknown OS detected"
+    exit 1
+  fi
 }
 
 print_credits(){

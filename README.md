@@ -22,7 +22,15 @@ If you want to create a package for a distro's repo, feel free but I will not pr
 
 After installation, run `futurefetch` and enjoy!
 
+## Officially Supported OS
+
+- GNU/Linux
+- MacOS **i do not own a mac so yeah, i'd appreciate someone owning a mac contributing to this project :D*
+
 ## Dependencies:
+
+
+**FOR LINUX**
 
 - bash
 - lshw
@@ -31,8 +39,19 @@ After installation, run `futurefetch` and enjoy!
 - sudo
 - wget *(for the installer)*
 
-**additionally, futurefetch requires the following stuff inside** `/etc/os-release`**:**
+additionally, futurefetch requires the following stuff inside `/etc/os-release`:
 
 - `NAME=`
 - `VERSION=`
 - `HOME_URL=`
+
+**FOR MACOS**
+
+- nano
+- sudo
+- bash
+- wget *(for the installer)*
+
+## Contributing
+
+Please contribute if you can :D, also if you contribute, add urself to `CONTRIBUTORS.md`
