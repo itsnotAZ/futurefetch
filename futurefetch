@@ -9,7 +9,7 @@ futurefetchver="0.3.0" # version of this tool
 accentcolor=$(head -n 20 "$pathtoconfig" | tail -1)
 secondcolor=$(head -n 24 "$pathtoconfig" | tail -1)
 showcredits=$(head -n 41 "$pathtoconfig" | tail -1)
-credits="\033[1;92mfuturefetch \033[0mby \033[46mitsnotaz \033[4;37m(itsnotaz.github.io/website/) \033[0m and contributors ()"
+credits="\033[1;92mfuturefetch \033[0mby \033[46mitsnotAZ\033[0m and contributors"
 configcredits=$(head -n 45 "$pathtoconfig" | tail -1)
 
 # PRINT STUFF
