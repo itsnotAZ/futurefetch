@@ -39,3 +39,7 @@ LOGO
 SHOW CREDITS
 ---------
 NO
+
+CONFIG CREDITS
+---------
+\033[0;36mConfigName by ConfigMaker (configmaker.com)

@@ -5,10 +5,12 @@
 # VARIABLES
 
 pathtoconfig="/etc/ffetchconfig" # by default it is at /etc/ffetchconfig
-futurefetchver="0.2.0" # version of this tool
+futurefetchver="0.3.0" # version of this tool
 accentcolor=$(head -n 20 "$pathtoconfig" | tail -1)
 secondcolor=$(head -n 24 "$pathtoconfig" | tail -1)
 showcredits=$(head -n 41 "$pathtoconfig" | tail -1)
+credits="\033[1;92mfuturefetch \033[0mby \033[46mitsnotaz\033[0m \033[4;37m(itsnotaz.github.io/website/)"
+configcredits=$(head -n 45 "$pathtoconfig" | tail -1)
 
 # PRINT STUFF
 
@@ -30,7 +32,9 @@ print_universal_info(){
   echo -e "$accentcolor OS Homepage$secondcolor $(cat /etc/os-release | grep -oP '(?<=^HOME_URL=).+' | tr -d '"')"
   echo -e "$accentcolor OS Kernel$secondcolor $(uname -s -r)"
   echo -e "$accentcolor Architecture$secondcolor $(uname -m)"
-  echo -e "$accentcolor DE + Session$secondcolor $XDG_CURRENT_DESKTOP + $DESKTOP_SESSION"
+  echo -e "$accentcolor DE$secondcolor $XDG_CURRENT_DESKTOP"
+  echo -e "$accentcolor Session$secondcolor $DESKTOP_SESSION"
+  echo -e "$accentcolor Uptime$secondcolor $(uptime -p)"
   echo -e "$accentcolor CPU$secondcolor $(lscpu | awk -F': *' '/Model name/{print $2}')"
   echo -e "$accentcolor GPU$secondcolor $(lshw 2>/dev/null -C display | grep product | head -n 1 | awk '{print $2, $3}')"
   echo -e "$accentcolor Memory$secondcolor $(awk '/MemTotal/{print $2/1024}' /proc/meminfo) MB"
@@ -38,7 +42,8 @@ print_universal_info(){
 }
 
 print_credits(){
-  echo -e "\033[1;92mfuturefetch \033[0mby \033[46mitsnotaz\033[0m \033[4;37m(https://itsnotaz.github.io/website/)"
+  echo -e "$credits"
+  echo -e "$configcredits"
 }
 
 #print_special(){
@@ -46,19 +51,74 @@ print_credits(){
 
 # RUN STUFF
 
-echo ""
-print_logo
-echo ""
-print_universal_info
-if [[ "$showcredits" == "YES" ]]; then
+if [ "$#" -eq  0 ]
+then
+  echo ""
+  print_logo
+  echo ""
+  print_universal_info
+  #echo ""
+  #print_special
+  if [[ "$showcredits" == "YES" ]]; then
+    echo ""
+    print_credits
+    exit 0
+  elif [[ "$showcredits" == "NO" ]]; then
+    exit 0
+  else
+    echo -e "\033[0;32mERROR (futurefetch): $showcredits is an invalid option for SHOW CREDITS in $pathtoconfig"
+    exit 1
+  fi
+elif [ "$1" == "--help" ] || [ "$1" == "-h" ] || [ "$1" == "-H" ] || [ "$1" == "--HELP" ] && [ "$#" -eq  1 ]
+then
+  echo ""
+  echo -e " \033[1;92mfuturefetch \033[0mby \033[46mitsnotaz\033[0m \033[4;37m(https://itsnotaz.github.io/website/)"
+  echo -e ""
+  echo -e "$accentcolor -h/--help $secondcolor: shows this menu"
+  echo -e "$accentcolor -c/--credits $secondcolor: shows the credits only" 
+  echo -e "$accentcolor -n/--nologo $secondcolor: does not show the logo"
+  echo -e "$accentcolor -i/--noinfo $secondcolor: does not show the info"
+  echo -e "$accentcolor -e/--editconfig $secondcolor: opens the config in GNU Nano (with sudo)"
+  exit 0
+elif [ "$1" == "--credits" ] || [ "$1" == "-c" ] || [ "$1" == "-C" ] || [ "$1" == "--CREDITS" ] && [ "$#" -eq  1 ]
+then
   echo ""
   print_credits
+  echo ""
   exit 0
-elif [[ "$showcredits" == "NO" ]]; then
-  exit 0
+elif [ "$1" == "--nologo" ] || [ "$1" == "-n" ] || [ "$1" == "-N" ] || [ "$1" == "--NOLOGO" ] && [ "$#" -eq  1 ]
+then
+  echo ""
+  print_universal_info
+  if [[ "$showcredits" == "YES" ]]; then
+    echo ""
+    print_credits
+    exit 0
+  elif [[ "$showcredits" == "NO" ]]; then
+    exit 0
+  else
+    echo -e "\033[0;32mERROR (futurefetch): $showcredits is an invalid option for SHOW CREDITS in $pathtoconfig"
+    exit 1
+  fi
+elif [ "$1" == "--noinfo" ] || [ "$1" == "-i" ] || [ "$1" == "-I" ] || [ "$1" == "--NOINFO" ] && [ "$#" -eq  1 ]
+then
+  echo ""
+  print_logo
+  if [[ "$showcredits" == "YES" ]]; then
+    echo ""
+    print_credits
+    exit 0
+  elif [[ "$showcredits" == "NO" ]]; then
+    exit 0
+  else
+    echo -e "\033[0;32mERROR (futurefetch): $showcredits is an invalid option for SHOW CREDITS in $pathtoconfig"
+    exit 1
+  fi
+elif [ "$1" == "--editconfig" ] || [ "$1" == "-e" ] || [ "$1" == "-E" ] || [ "$1" == "--EDITCONFIG" ] && [ "$#" -eq  1 ]
+then
+  sudo nano "$pathtoconfig"
 else
-  echo -e "\033[0;32mERROR (futurefetch): $showcredits is an invalid option for SHOW CREDITS in $pathtoconfig"
+  echo -e "\033[0;32mERROR (futurefetch): Invalid arguement(s)"
   exit 1
-fi
-#echo ""
-#print_special
+fi  
+
