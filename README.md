@@ -4,7 +4,7 @@
 # futurefetch
 Spiritual Successor to **[neofetch](https://github.com/dylanaraps/neofetch)** *by [dylanaraps](https://github.com/dylanaraps)* for GNU/Linux *(and possibly other Unix/Unix-like systems)*
 
-<p align="center"><img src="" /></p>
+<p align="center"><img src="https://github.com/itsnotAZ/futurefetch/blob/main/assets/thing.png" /></p>
 <p align="center"><em>picture of stock futurefetch 0.2.0 (stock config)</em></p>
 
 ## tf?
