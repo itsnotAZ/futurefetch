@@ -1,4 +1,4 @@
-
+![epicus](https://github.com/itsnotAZ/futurefetch/blob/main/assets/thing2.png "yes")\
 **THIS TOOL IS STILL IN EARLY ALPHA SO IT IS MISSING FEATURES**
 
 # futurefetch
