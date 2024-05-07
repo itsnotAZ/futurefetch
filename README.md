@@ -1,10 +1,10 @@
-![amogus](https://github.com/itsnotAZ/futurefetch/assets/155894291/ef7aa044-51c9-4781-aec7-0ee89514e9f8)\
+
 **THIS TOOL IS STILL IN EARLY ALPHA SO IT IS MISSING FEATURES**
 
 # futurefetch
 Spiritual Successor to **[neofetch](https://github.com/dylanaraps/neofetch)** *by [dylanaraps](https://github.com/dylanaraps)* for GNU/Linux *(and possibly other Unix/Unix-like systems)*
 
-<p align="center"><img src="https://github.com/itsnotAZ/futurefetch/assets/155894291/05d63241-3287-4e41-9919-de526574275b" /></p>
+<p align="center"><img src="" /></p>
 <p align="center"><em>picture of stock futurefetch 0.2.0 (stock config)</em></p>
 
 ## tf?
@@ -26,20 +26,27 @@ After installation, run `futurefetch` and enjoy!
 
 - GNU/Linux
 - MacOS **i do not own a mac so yeah, i'd appreciate someone owning a mac contributing to this project :D*
+- Cygwin (Windows) **incomplete*
 
 ## Dependencies:
 
 
 **FOR LINUX**
 
+`installer.sh` will automate the installation of the following packages on some distros and their derivatives (Debian, Arch and Fedora):
+
 - bash
 - lshw
 - util-linux
 - nano
 - sudo
+- xrandr
+- grep
+- gawk
+- coreutils
 - wget *(for the installer)*
 
-additionally, futurefetch requires the following stuff inside `/etc/os-release`:
+additionally, futurefetch requires the following things inside `/etc/os-release`:
 
 - `NAME=`
 - `VERSION=`
@@ -47,9 +54,25 @@ additionally, futurefetch requires the following stuff inside `/etc/os-release`:
 
 **FOR MACOS**
 
+you can install these using a tool like [Homebrew](https://brew.sh/):
+
 - nano
 - sudo
 - bash
+- wget *(for the installer)*
+
+**FOR CYGWIN (WINDOWS)**
+
+make sure you have installed the following packages during your cygwin setup
+
+- bash
+- lshw
+- util-linux
+- nano
+- xrandr
+- grep
+- gawk
+- coreutils
 - wget *(for the installer)*
 
 ## Contributing

@@ -34,6 +34,8 @@ print_universal_info(){
     echo -e "$accentcolor OS Homepage$secondcolor $(cat /etc/os-release | grep -oP '(?<=^HOME_URL=).+' | tr -d '"')"
     echo -e "$accentcolor OS Kernel$secondcolor $(uname -s -r)"
     echo -e "$accentcolor Architecture$secondcolor $(uname -m)"
+    echo -e "$accentcolor Resolution$secondcolor $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1) x $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+"
     echo -e "$accentcolor DE$secondcolor $XDG_CURRENT_DESKTOP"
     echo -e "$accentcolor Session$secondcolor $DESKTOP_SESSION"
     echo -e "$accentcolor Uptime$secondcolor $(uptime -p)"
@@ -55,6 +57,20 @@ print_universal_info(){
     echo -e "$accentcolor CPU$secondcolor $(sysctl -n machdep.cpu.brand_string)"
     total_memory="$(sysctl -n hw.memsize)" / 1024 / 1024 # the command prints in bytes so we convert to mb (does this even work?)
     echo -e "$accentcolor Memory$secondcolor $total_memory_mb MB"
+    echo -e "$accentcolor Future Fetch Version$secondcolor $futurefetchver"
+  elif [[ "$OSTYPE" == "cygwin"* ]] # Cygwin (WINDOWS SUPPORT!!!!!!)
+  then
+    # unfortunatly i can't figure out how to 
+    # output the gpu so yeah
+    echo -e "$accentcolor OS Name$secondcolor Microsoft Windows"
+    echo -e "$accentcolor OS Homepage$secondcolor https://www.microsoft.com/en-us/windows"
+    echo -e "$accentcolor Cygwin$secondcolor $(uname)"
+    echo -e "$accentcolor Architecture$secondcolor $(uname -m)"
+    echo -e "$accentcolor Resolution$secondcolor $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1) x $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+"
+    echo -e "$accentcolor Uptime$secondcolor $(uptime -p)"
+    echo -e "$accentcolor CPU$secondcolor $(lscpu | awk -F': *' '/Model name/{print $2}')"
+    echo -e "$accentcolor Memory$secondcolor $(awk '/MemTotal/{print $2/1024}' /proc/meminfo) MB"
     echo -e "$accentcolor Future Fetch Version$secondcolor $futurefetchver"
   else
     echo -e "\033[0;32mERROR (futurefetch): Unknown OS detected"
@@ -137,7 +153,12 @@ then
   fi
 elif [ "$1" == "--editconfig" ] || [ "$1" == "-e" ] || [ "$1" == "-E" ] || [ "$1" == "--EDITCONFIG" ] && [ "$#" -eq  1 ]
 then
-  sudo nano "$pathtoconfig"
+  if [[ "$OSTYPE" == "cygwin"* ]]
+  then
+    cygstart --action=runas nano "$pathtoconfig"
+  else
+    sudo nano "$pathtoconfig"
+  fi
 else
   echo -e "\033[0;32mERROR (futurefetch): Invalid arguement(s)"
   exit 1
