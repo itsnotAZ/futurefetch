@@ -1,6 +1,10 @@
 ![epicus](https://github.com/itsnotAZ/futurefetch/blob/main/assets/thing2.png "yes")\
 **THIS TOOL IS STILL IN EARLY ALPHA SO IT IS MISSING FEATURES**
 
+**THIS README FILE SHOWS INFO FOR 0.3.0, AN UNRELEASED VERSION.**\
+**SO 0.2.0(THE CURRENT LATEST VERSION, MAY NOT HAVE ALL THE FEATURES**\
+**THAT ARE LISTED HERE**\
+
 # futurefetch
 Spiritual Successor to **[neofetch](https://github.com/dylanaraps/neofetch)** *by [dylanaraps](https://github.com/dylanaraps)* for GNU/Linux *(and possibly other Unix/Unix-like systems)*
 
