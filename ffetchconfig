@@ -1,9 +1,9 @@
 <-----------------------------------INFO---------------------------------->
-
+0.3.0
 this file should supposed to be located in /etc
 
-do not modify anything you are not supposed to
-modify, or you will break the script (and dont append extra lines)
+do not modify anything you are not supposed to modify, 
+or you will break the script (and dont append extra lines)
 
 TO ADD COLOR DO: \033[{ansi color escape code}m{text}
 ex. \033[0;32m# --> this will output a red # (no text effects)

@@ -96,11 +96,13 @@ then
   print_universal_info
   #echo ""
   #print_special
-  if [[ "$showcredits" == "YES" ]]; then
+  if [[ "$showcredits" == "YES" ]]
+  then
     echo ""
     print_credits
     exit 0
-  elif [[ "$showcredits" == "NO" ]]; then
+  elif [[ "$showcredits" == "NO" ]]
+  then
     exit 0
   else
     echo -e "\033[0;32mERROR (futurefetch): $showcredits is an invalid option for SHOW CREDITS in $pathtoconfig"
@@ -127,11 +129,13 @@ elif [ "$1" == "--nologo" ] || [ "$1" == "-n" ] || [ "$1" == "-N" ] || [ "$1" ==
 then
   echo ""
   print_universal_info
-  if [[ "$showcredits" == "YES" ]]; then
+  if [[ "$showcredits" == "YES" ]] 
+  then
     echo ""
     print_credits
     exit 0
-  elif [[ "$showcredits" == "NO" ]]; then
+  elif [[ "$showcredits" == "NO" ]]
+  then
     exit 0
   else
     echo -e "\033[0;32mERROR (futurefetch): $showcredits is an invalid option for SHOW CREDITS in $pathtoconfig"
@@ -141,11 +145,13 @@ elif [ "$1" == "--noinfo" ] || [ "$1" == "-i" ] || [ "$1" == "-I" ] || [ "$1" ==
 then
   echo ""
   print_logo
-  if [[ "$showcredits" == "YES" ]]; then
+  if [[ "$showcredits" == "YES" ]]
+  then
     echo ""
     print_credits
     exit 0
-  elif [[ "$showcredits" == "NO" ]]; then
+  elif [[ "$showcredits" == "NO" ]]
+  then
     exit 0
   else
     echo -e "\033[0;32mERROR (futurefetch): $showcredits is an invalid option for SHOW CREDITS in $pathtoconfig"

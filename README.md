@@ -32,6 +32,37 @@ After installation, run `futurefetch` and enjoy!
 - MacOS **i do not own a mac so yeah, i'd appreciate someone owning a mac contributing to this project :D*
 - Cygwin (Windows) **incomplete*
 
+*i'd appreciate someone helping me on freebsd support :)*
+
+## Roadmap
+
+**THIS IS ALL SUBJECT TO CHANGE!*
+
+**0.3.0**
+
+- [x] Experiemental MacOSX support
+- [x] Cygwin support
+- [x] futurefetch now has arguements to launch with
+- [x] Credit system for config creators
+- [x] Autoinstall dependencies for some distros
+- [x] Installer adapts to the host OS
+- [x] Backwards compatibillity
+- [ ] Package Manager sort-of installer for configs
+
+**0.4.0**
+
+- [ ] Replace echo with printf
+- [ ] Themes
+- [ ] FreeBSD Support
+- [ ] Haiku OS Support
+- [ ] Some kind of translation work
+
+**0.5.0**
+
+- [ ] More translation work
+- [ ] Solaris support (?)
+- [ ] Minix support (?)
+
 ## Dependencies:
 
 
@@ -70,7 +101,6 @@ you can install these using a tool like [Homebrew](https://brew.sh/):
 make sure you have installed the following packages during your cygwin setup
 
 - bash
-- lshw
 - util-linux
 - nano
 - xrandr
