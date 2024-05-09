@@ -3,25 +3,22 @@
 install() {
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "GNU/Linux detected..."
-    if [ -f /usr/bin/dnf ]
-    then
+    if command -v dnf &>/dev/null; then
       echo "Distro is (or is based on) Fedora Linux..."
       echo "Installing Dependencies..."
       sudo dnf install bash lshw util-linux nano sudo wget xrandr grep gawk coreutils
-    if [ -f /usr/bin/apt ]
-    then
+    elif command -v apt &>/dev/null; then
       echo "Distro is (or is based on) Debian Linux..."
       echo "Installing Dependencies..."
       sudo apt install bash lshw util-linux nano sudo wget x11-xserver-utils grep gawk coreutils
-    if [ -f /usr/bin/pacman ]
-    then
+    elif command -v pacman &>/dev/null; then
       echo "Distro is (or is based on) Arch Linux"
       echo "Installing Dependencies..."
       sudo pacman -Sy bash lshw util-linux nano sudo wget xorg-xrandr grep gawk coreutils
     else
-      echo "installer.sh does not support automatic installation of dependenices on your distro."
-      echo "please install the following dependenices manually:"
-      echo -e "- bash\n- lshw\n- util-linux\n- nano\n- sudo\n- wget\n- xrandr\n- grep\n- gawk\n- coreutils"
+      echo "installer.sh does not support automatic installation of dependencies on your distro."
+      echo "Please install the following dependencies manually:"
+      echo "- bash\n- lshw\n- util-linux\n- nano\n- sudo\n- wget\n- xrandr\n- grep\n- gawk\n- coreutils"
     fi
     echo "Downloading futurefetch..."
     wget https://github.com/itsnotAZ/futurefetch/releases/download/v0.3.0/futurefetch
@@ -91,12 +88,12 @@ then
           echo "Distro is (or is based on) Fedora Linux..."
           echo "Installing Dependencies..."
           sudo dnf install bash lshw util-linux nano sudo wget xrandr grep gawk coreutils
-        if [ -f /usr/bin/apt ]
+        elif [ -f /usr/bin/apt ]
          then
           echo "Distro is (or is based on) Debian Linux..."
           echo "Installing Dependencies..."
           sudo apt install bash lshw util-linux nano sudo wget x11-xserver-utils grep gawk coreutils
-        if [ -f /usr/bin/pacman ]
+        elif [ -f /usr/bin/pacman ]
         then
           echo "Distro is (or is based on) Arch Linux"
           echo "Installing Dependencies..."
@@ -127,6 +124,7 @@ then
         cygstart --action=runas mv futurefetch /usr/bin
       else
         echo -e "\033[0;32mERROR (installer.sh): Unsupported Operating System"
+        exit 1
       fi
       echo "Upgrade complete!"
       echo "If upgrade was successful, configure the ffetchconfig located in /etc by running 'futurefetch -e'"
@@ -136,10 +134,14 @@ then
       install
     else
       echo -e "\033[0;32mERROR (installer.sh): Invalid option $ynone"
+      exit 1
     fi 
   else
     install
   fi
+else
+  install
+fi
 else
   install
 fi
