@@ -47,10 +47,10 @@ After installation, run `futurefetch` and enjoy!
 - [x] Autoinstall dependencies for some distros
 - [x] Installer adapts to the host OS
 - [x] Backwards compatibillity
-- [ ] Package Manager sort-of installer for configs
 
 **0.4.0**
 
+- [ ] Package Manager sort-of installer for configs
 - [ ] Replace echo with printf
 - [ ] Themes
 - [ ] FreeBSD Support

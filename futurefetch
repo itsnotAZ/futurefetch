@@ -165,6 +165,8 @@ then
   else
     sudo nano "$pathtoconfig"
   fi
+#elif [ "$1" == "--installconfig" ] || [ "$1" == "-i" ] || [ "$1" == "-I" ] || [ "$1" == "--INSTALLCONFIG" ] && [ "$#" -eq 2 ]
+#then
 else
   echo -e "\033[0;32mERROR (futurefetch): Invalid arguement(s)"
   exit 1
