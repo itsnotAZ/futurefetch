@@ -50,7 +50,6 @@ After installation, run `futurefetch` and enjoy!
 - [ ] Replace echo with printf
 - [ ] Themes
 - [ ] FreeBSD Support
-- [ ] Haiku OS Support
 - [ ] Some kind of translation work
 
 **0.5.0**
@@ -58,6 +57,7 @@ After installation, run `futurefetch` and enjoy!
 - [ ] More translation work
 - [ ] Solaris support (?)
 - [ ] Minix support (?)
+- [ ] Haiku OS Support (?)
 
 ## Dependencies:
 
