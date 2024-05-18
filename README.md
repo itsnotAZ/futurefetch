@@ -46,6 +46,7 @@ After installation, run `futurefetch` and enjoy!
 
 **0.4.0**
 
+- [ ] Better Cygwin support
 - [ ] Package Manager sort-of installer for configs
 - [ ] Replace echo with printf
 - [ ] Themes
