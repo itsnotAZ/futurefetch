@@ -22,6 +22,14 @@ If you want to create a package for a distro's repo, feel free but I will not pr
 
 After installation, run `futurefetch` and enjoy!
 
+## Usage
+
+**-h/--help**       : shows this menu\
+**-c/--credits**    : shows the credits only"\
+**-n/--nologo**     : does not show the logo\
+**-i/--noinfo**     : does not show the info\
+**-e/--editconfig** : opens the config in GNU Nano (with sudo)
+
 ## Officially Supported OS
 
 - GNU/Linux
@@ -44,11 +52,16 @@ After installation, run `futurefetch` and enjoy!
 - [x] Installer adapts to the host OS
 - [x] Backwards compatibillity
 
+**0.3.1**
+
+- [ ] Package Manager sort-of installer for configs
+- [ ] Pre-made configs
+- [x] Installer Improvements
+
 **0.4.0**
 
-- [ ] Better Cygwin support
-- [ ] Package Manager sort-of installer for configs
 - [ ] Replace echo with printf
+- [ ] Better Cygwin support
 - [ ] Themes
 - [ ] FreeBSD Support
 - [ ] Some kind of translation work

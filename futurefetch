@@ -5,7 +5,7 @@
 # VARIABLES
 
 pathtoconfig="/etc/ffetchconfig" # by default it is at /etc/ffetchconfig
-futurefetchver="0.3.0" # version of this tool
+futurefetchver="0.3.1" # version of this tool
 accentcolor=$(head -n 20 "$pathtoconfig" | tail -1)
 secondcolor=$(head -n 24 "$pathtoconfig" | tail -1)
 showcredits=$(head -n 41 "$pathtoconfig" | tail -1)
@@ -34,8 +34,7 @@ print_universal_info(){
     echo -e "$accentcolor OS Homepage$secondcolor $(cat /etc/os-release | grep -oP '(?<=^HOME_URL=).+' | tr -d '"')"
     echo -e "$accentcolor OS Kernel$secondcolor $(uname -s -r)"
     echo -e "$accentcolor Architecture$secondcolor $(uname -m)"
-    echo -e "$accentcolor Resolution$secondcolor $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1) x $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
-"
+    #echo -e "$accentcolor Resolution$secondcolor $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1) x $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)"
     echo -e "$accentcolor DE$secondcolor $XDG_CURRENT_DESKTOP"
     echo -e "$accentcolor Session$secondcolor $DESKTOP_SESSION"
     echo -e "$accentcolor Uptime$secondcolor $(uptime -p)"
@@ -62,8 +61,8 @@ print_universal_info(){
   then
     # unfortunatly i can't figure out how to 
     # output the gpu so yeah
-    echo -e "$accentcolor OS Name$secondcolor Microsoft Windows"
-    echo -e "$accentcolor OS Homepage$secondcolor https://www.microsoft.com/en-us/windows"
+    echo -e "$accentcolor OS Name$secondcolor Cygwin"
+    echo -e "$accentcolor OS Homepage$secondcolor https://cygwin.com/"
     echo -e "$accentcolor Cygwin$secondcolor $(uname)"
     echo -e "$accentcolor Architecture$secondcolor $(uname -m)"
     echo -e "$accentcolor Resolution$secondcolor $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1) x $(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
