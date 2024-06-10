@@ -5,7 +5,7 @@
 # VARIABLES
 
 pathtoconfig="/etc/ffetchconfig" # by default it is at /etc/ffetchconfig
-futurefetchver="0.3.1" # version of this tool
+futurefetchver="0.3.1 Incomplete" # version of this tool
 accentcolor=$(head -n 20 "$pathtoconfig" | tail -1)
 secondcolor=$(head -n 24 "$pathtoconfig" | tail -1)
 showcredits=$(head -n 41 "$pathtoconfig" | tail -1)
@@ -165,6 +165,7 @@ then
     sudo nano "$pathtoconfig"
   fi
 #elif [ "$1" == "--installconfig" ] || [ "$1" == "-i" ] || [ "$1" == "-I" ] || [ "$1" == "--INSTALLCONFIG" ] && [ "$#" -eq 2 ]
+#
 #then
 else
   echo -e "\033[0;32mERROR (futurefetch): Invalid arguement(s)"

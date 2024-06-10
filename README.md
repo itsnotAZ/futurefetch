@@ -54,8 +54,8 @@ After installation, run `futurefetch` and enjoy!
 
 **0.3.1**
 
-- [ ] Package Manager sort-of installer for configs
-- [ ] Pre-made configs
+- [x] Package Manager sort-of installer for configs
+- [ ] Pre-made configs (being made over at https://github.com/itsnotAZ/futurefetch-configs)
 - [x] Installer Improvements
 
 **0.4.0**
