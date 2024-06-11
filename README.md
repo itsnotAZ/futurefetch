@@ -61,6 +61,7 @@ After installation, run `futurefetch` and enjoy!
 **0.4.0**
 
 - [ ] Replace echo with printf
+- [ ] ChromeOS Support
 - [ ] Better Cygwin support
 - [ ] Themes
 - [ ] FreeBSD Support
