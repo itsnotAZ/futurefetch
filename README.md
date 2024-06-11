@@ -122,3 +122,5 @@ make sure you have installed the following packages during your cygwin setup
 ## Contributing
 
 Please contribute if you can :D, also if you contribute, add urself to `CONTRIBUTORS.md`
+
+You can also make your own configs over at https://github.com/itsnotAZ/futurefetch-configs (there are instructions).
