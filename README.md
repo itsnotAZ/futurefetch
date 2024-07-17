@@ -1,3 +1,5 @@
+**NEXT UPDATE WILL BE REWRITEN IN PYTHON SO ALL CURRENT CONFIGS WILL BE LOST**
+
 ![epicus](https://github.com/itsnotAZ/futurefetch/blob/main/assets/thing2.png "yes")\
 **THIS TOOL IS STILL IN EARLY ALPHA SO IT IS MISSING FEATURES**
 
@@ -54,28 +56,9 @@ After installation, run `futurefetch` and enjoy!
 
 **0.3.1**
 
-- [ ] Package Manager sort-of installer for configs
-- [ ] Pre-made configs (being made over at https://github.com/itsnotAZ/futurefetch-configs)
-- [x] Installer Improvements
-
-**0.4.0**
-
-- [ ] Replace echo with printf
-- [ ] ChromeOS Support
-- [ ] Better Cygwin support
-- [ ] Themes
-- [ ] FreeBSD Support
-- [ ] Some kind of translation work
-
-**0.5.0**
-
-- [ ] More translation work
-- [ ] Solaris support (?)
-- [ ] Minix support (?)
-- [ ] Haiku OS Support (?)
+- [ ] Rewrite the entire thing in Python
 
 ## Dependencies:
-
 
 **FOR LINUX**
 
