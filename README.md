@@ -54,7 +54,7 @@ After installation, run `futurefetch` and enjoy!
 - [x] Installer adapts to the host OS
 - [x] Backwards compatibillity
 
-**0.3.1**
+**0.4.0**
 
 - [ ] Rewrite the entire thing in Python
 
